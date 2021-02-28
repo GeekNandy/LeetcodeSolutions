@@ -1,21 +1,13 @@
 class MergeStringsAlternately {
-    public String mergeAlternately(String word1, String word2) {
-        int lenW1 = word1.length();
-        int lenW2 = word2.length();
-        String res = "";
-        int lim = -1;
-        boolean isWord1Longer = false;
-        
-        if(lenW1>lenW2) {
-            lim = lenW2;
-            isWord1Longer = true;
+     public String mergeAlternately(String w1, String w2) {
+        int n = w1.length(), m = w2.length(), i = 0, j = 0;
+        StringBuilder res = new StringBuilder();
+        while (i < n || j < m) {
+            if (i < n)
+                res.append(w1.charAt(i++));
+            if (j < m)
+                res.append(w2.charAt(j++));
         }
-        else lim = lenW1;
-        
-        for(int i=0; i<lim; i++) res+=(word1.charAt(i)+""+word2.charAt(i));
-        
-        if(lenW1!=lenW2) res+=(isWord1Longer?(word1.substring(lim)):(word2.substring(lim)));
-        
-        return res;
+        return res.toString();
     }
 }
